@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Edit {{ edit_idea.name }}</title>
+</head>
+<body>
+    <div class="form-group">
+        <h1>Edit Your Idea</h1>
+        <form action="/ideas/{{ edit_idea.id }}/edit_idea_in_db" method="POST">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div>
+                <label for="name">Idea Name:</label>
+                <input type="text" name="name" id="name" value="{{ edit_idea.name }}" class="form-control">
+            </div>
+            <!-- <div>
+                <label for="category">Category:</label>
+                <select id="category" name="category" class="form-control">
+                    {% if edit_idea.category == 0 %}
+                        <option value="0" selected>--Select Category--</option>
+                    {% else %}
+                        <option value="0">--Select Category--</option>
+                    {% endif %}
+
+                    {% if edit_idea.category == 1 %}
+                        <option value="1" selected>Arts/ Crafts</option>
+                    {% else %}
+                        <option value="1">Arts/ Crafts</option>
+                    {% endif %}
+
+                    {% if edit_idea.category == 2 %}
+                        <option value="2" selected>Baking/ Cooking</option>
+                    {% else %}
+                        <option value="2">Baking/ Cooking</option>
+                    {% endif %}
+                    
+                    {% if edit_idea.category == 3 %}
+                        <option value="3" selected>Building/ Construction</option>
+                    {% else %}
+                        <option value="3">Building/ Construction</option>
+                    {% endif %}
+                    
+                    {% if edit_idea.category == 4 %}
+                        <option value="4" selected>Businesses</option>
+                    {% else %}
+                        <option value="4">Businesses</option>
+                    {% endif %}
+                    
+                    {% if edit_idea.category == 5 %}
+                        <option value="5" selected>Easy DIYs</option>
+                    {% else %}
+                        <option value="5">Easy DIYs</option>
+                    {% endif %}
+                    
+                    {% if edit_idea.category == 6 %}
+                        <option value="6" selected>Essays</option>
+                    {% else %}
+                        <option value="6">Essays</option>
+                    {% endif %}
+                    
+                    {% if edit_idea.category == 7 %}
+                        <option value="7" selected>Home Projects</option>
+                    {% else %}
+                        <option value="7">Home Projects</option>
+                    {% endif %}
+                    
+                    {% if edit_idea.category == 8 %}
+                        <option value="8" selected>Mechanical</option>
+                    {% else %}
+                        <option value="8">Mechanical</option>
+                    {% endif %}
+                    
+                    {% if edit_idea.category == 9 %}
+                        <option value="9" selected>Technical</option>
+                    {% else %}
+                        <option value="9">Technical</option>
+                    {% endif %}
+                    
+                    {% if edit_idea.category == 10 %}
+                        <option value="10" selected>Random/ Misc</option>
+                    {% else %}
+                        <option value="10">Random/ Misc</option>
+                    {% endif %}
+                </select>
+            </div> -->
+            <div>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" rows="5" class="form-control">{{ edit_idea.description }}</textarea>
+            </div>
+
+            <input type="submit" value="Edit Idea">
+        </form>
+        <a href="/my_ideas">My Ideas</a>
+        <a href="/dashboard">Home</a>
+</body>
+</html>

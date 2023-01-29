@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Categories</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/logout"><button class="btn btn-danger">Logout</button></a>
+        <div class="row">
+            <h1 class="text-center">Idea's.com</h1>
+            <h2 class="text-center">Where Ideas Meet Innovation</h2>
+        </div>
+        <div class="row text-center">
+            <p class="col"><a href="/dashboard"><button class="btn btn-secondary">Recent</button></a></p>
+            <p class="col"><a href="/top_ideas"><button class="btn btn-secondary">Top Rated Ideas</button></a></p>
+            <p class="col"><a href="/categories"><button class="btn btn-secondary">Categories</button></a></p>
+            <p class="col"><a href="/my_ideas"><button class="btn btn-secondary">My Ideas</button></a></p>
+            <p class="col"><a href="/favorites"><button class="btn btn-secondary">My Favorites</button></a></p>
+        </div>
+        <div class="row">
+            <h3>Categories</h3>
+            <p class="col-3" value="1"><a href="/ideas/{{ all_ideas.category }}/category">Arts/ Crafts</a></p>
+            <p class="col-3" value="2"><a href="/ideas/{{ all_ideas.category }}/category">Baking/ Cooking</a></p>
+            <p class="col-3" value="3"><a href="/ideas/{{ all_ideas.category }}/category">Building/ Construction</a></p>
+            <p class="col-3" value="4"><a href="/ideas/{{ all_ideas.category }}/category">Businesses</a></p>
+            <p class="col-3" value="5"><a href="/ideas/{{ all_ideas.category }}/category">Easy DIYs</a></p>
+            <p class="col-3" value="6"><a href="/ideas/{{ all_ideas.category }}/category">Essays</a></p>
+            <p class="col-3" value="7"><a href="/ideas/{{ all_ideas.category }}/category">Home Projects</a></p>
+            <p class="col-3" value="8"><a href="/ideas/{{ all_ideas.category }}/category">Mechanical</a></p>
+            <p class="col-3" value="9"><a href="/ideas/{{ all_ideas.category }}/category">Technical</a></p>
+            <p class="col-3" value="10"><a href="/ideas/{{ all_ideas.category }}/category">Random/ Misc</a></p>
+        </div>
+        <a href="/new_idea"><button class="btn btn-primary">+ New Idea</button></a>
+    </div>
+</body>
+</html>

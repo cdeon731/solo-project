@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Category</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/logout"><button class="btn btn-danger">Logout</button></a>
+        <div class="row">
+            <h1 class="text-center">Idea's.com</h1>
+            <h2 class="text-center">Where Ideas Meet Innovation</h2>
+        </div>
+        <div class="row text-center">
+            <p class="col"><a href="/dashboard"><button class="btn btn-secondary">Recent</button></a></p>
+            <p class="col"><a href="/top_ideas"><button class="btn btn-secondary">Top Rated Ideas</button></a></p>
+            <p class="col"><a href="/categories"><button class="btn btn-secondary">Categories</button></a></p>
+            <p class="col"><a href="/my_ideas"><button class="btn btn-secondary">My Ideas</button></a></p>
+            <p class="col"><a href="/favorites"><button class="btn btn-secondary">My Favorites</button></a></p>
+        </div>
+        <div class="row">
+            <h3>Category</h3>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Date Posted</th>
+                        <th>Actions</th>
+                        <th>Favorites</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for idea in all_ideas %}
+                    <tr>
+                        <td>{{ idea.name }}</td>
+                        <td>{{ idea.category }}</td>
+                        <td>{{ idea.created_at }}</td>
+                        <td>
+                            <a href="/idea/{{ idea.id }}/view">View</a>
+                            {% if idea.user.id == session["user_id"] %}
+                                <a href="/idea/{{ idea.id }}/edit">Edit</a>
+                                <a href="/idea/{{ idea.id }}/delete">Delete</a>
+                            {% endif %}
+                        </td>
+                        <td>{{ idea.favorites }}</td>
+                        <td><button class="btn btn-warning">Favorite</button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="/new_idea"><button class="btn btn-primary">+ New Idea</button></a>
+    </div>
+</body>
+</html>

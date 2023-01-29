@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>View {{ one_idea.name }}</title>
+</head>
+<body>
+    <div class="container">
+        <h1>About {{ one_idea.name }}:</h1>
+        <p>Added By: {{ one_idea.user.first_name }} {{ one_idea.user.last_name }}</p>
+        <!-- <p>Category: {{ one_idea.category }}</p> -->
+        <p>Description: {{ one_idea.description }}</p>
+        <p>Favorites: {{ one_idea.favorites }}</p>
+
+        {% if one_idea.user.id == session["user_id"] %}
+            <a href="/idea/{{ one_idea.id }}/edit">Edit</a>
+            <a href="/idea/{{ one_idea.id }}/delete">Delete</a>
+            <a href="/my_ideas">My Ideas</a>
+        {% endif %}
+        <a href="/dashboard">Home</a>
+    </div>
+</body>
+</html>
